@@ -7,7 +7,7 @@ import { switchMap } from 'rxjs/operators/switchMap';
 /**
  * Wait for localesPathSubject before translate.
  *
- * Exemple : `ConfigurableTranslateHttpLoader.localesPathSubject('http://localhost:4200/assets/locales/')`.
+ * Exemple : `ConfigurableTranslateHttpLoader.localesPathSubject.next('http://localhost:4200/assets/locales/')`.
 */
 export class ConfigurableTranslateHttpLoader extends TranslateHttpLoader {
 
