@@ -48,7 +48,7 @@ Because I need to get async configuration that contains the prefix.
   })
   export class AppModule {
     constructor(@Optional()@Inject('CONFIG') config) {
-      // Need minimum one call of this
+      // Need minimum one call of this :
       ConfigurableTranslateHttpLoader.localesPathSubject.next(config.localesPath); // Give path of locales and allow TranslateHttpLoader to answer
     }
   }
