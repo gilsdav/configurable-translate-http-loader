@@ -10,7 +10,7 @@ import { take, tap, switchMap } from 'rxjs/operators';
 */
 export class ConfigurableTranslateHttpLoader extends TranslateHttpLoader {
 
-    public static localesPathSubject = new ReplaySubject<string>();
+    public static localesPathSubject = new ReplaySubject<string>(1);
 
     public getTranslation(lang: string) {
         return ConfigurableTranslateHttpLoader.localesPathSubject.pipe(
