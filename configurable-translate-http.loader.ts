@@ -1,8 +1,7 @@
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { tap } from 'rxjs/operators/tap';
-import { switchMap } from 'rxjs/operators/switchMap';
+import { ReplaySubject } from 'rxjs';
+import { take, tap, switchMap } from 'rxjs/operators';
 
 /**
  * Wait for localesPathSubject before translate.
@@ -15,6 +14,7 @@ export class ConfigurableTranslateHttpLoader extends TranslateHttpLoader {
 
     public getTranslation(lang: string) {
         return ConfigurableTranslateHttpLoader.localesPathSubject.pipe(
+            take(1),
             tap(value => { this.prefix = value; }),
             switchMap(() => super.getTranslation(lang))
         );
